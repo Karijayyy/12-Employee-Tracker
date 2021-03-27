@@ -11,7 +11,26 @@ const connection = mysql.createConnection({
   database: 'employee_trackerDB',
 });
 
+// begin prompt here
+function startPrompt() {
+    inquirer.prompt([
+    {
+    type: "list",
+    message: "Please choose from the following options.",
+    name: "options",
+    choices: [
+              "Add department",
+              "Add new role",
+              "Add new employee",
+              "View departments",
+              "View roles",
+              "View employees",
+              "Update employee roles",
+              
+            ]
+    }]);
 
+//---------docs syntax--------------
 // inquirer.prompt([/* Pass your questions in here */], function( answers ) {
 //     // Use user feedback for... whatever!!
 // });
