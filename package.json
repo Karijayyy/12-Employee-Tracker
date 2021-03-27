@@ -1,0 +1,19 @@
+{
+  "name": "12-employee-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Karijayyy/12-Employee-Tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Karijayyy/12-Employee-Tracker/issues"
+  },
+  "homepage": "https://github.com/Karijayyy/12-Employee-Tracker#readme"
+}
