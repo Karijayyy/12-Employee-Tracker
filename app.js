@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 const inquirer = require("inquirer");
-const cTable = require('console.table');
+const table = require('console.table');
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -9,6 +9,13 @@ const connection = mysql.createConnection({
   // Be sure to update with your own MySQL password!
   password: '',
   database: 'employee_trackerDB',
+});
+
+// create connection if not err
+connection.connect((err) => {
+  if (err) throw err;
+  console.log(`connected as id ${connection.threadId}`);
+  startPrompt();
 });
 
 // begin prompt here
@@ -28,28 +35,39 @@ function startPrompt() {
               "Update employee roles",
               
             ]
-    }]);
+    }])
 
-//---------docs syntax--------------
-// inquirer.prompt([/* Pass your questions in here */], function( answers ) {
-//     // Use user feedback for... whatever!!
-// });
+// create functions
 
+.then(answer) => {
+  switch (answer.action){
 
-// call once somewhere in the beginning of the app
-// THIS IS THE CONSOLE TABLE (SYNTAX FROM DOCS)
-// console.table([
-//   {
-//     name: 'foo',
-//     age: 10
-//   }, {
-//     name: 'bar',
-//     age: 20
-//   }
-// ]);
+case "Add department"();
+addDepartment();
+break;
 
-// // prints
-// name  age
-// ----  ---
-// foo   10
-// bar   20
+case "Add new role"();
+addNewRole();
+break;
+
+case "Add new employee"();
+addNewEmployee();
+break;
+
+case "View departments"();
+viewDeparments();
+break;
+
+case "View roles"();
+viewRoles();
+break;
+
+case "View employee"();
+viewEmployee();
+break;
+
+case "Update Employee Role"();
+updateEmployeeRole();
+break;
+  }
+}};
