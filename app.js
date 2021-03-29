@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 const inquirer = require("inquirer");
-const table = require('console.table');
+const cTable = require('console.table');
 
 const connection = mysql.createConnection({
   host: 'localhost',
@@ -20,54 +20,71 @@ connection.connect((err) => {
 
 // begin prompt here
 function startPrompt() {
-    inquirer.prompt([
+  inquirer.prompt([
     {
-    type: "list",
-    message: "Please choose from the following options.",
-    name: "options",
-    choices: [
-              "Add department",
-              "Add new role",
-              "Add new employee",
-              "View departments",
-              "View roles",
-              "View employees",
-              "Update employee roles",
-              
-            ]
-    }])
+      type: "list",
+      message: "Please choose from the following options.",
+      name: "options",
+      choices: [
+        "Add department",
+        "Add new role",
+        "Add new employee",
+        "View departments",
+        "View roles",
+        "View employees",
+        "Update employee roles",
 
-// create functions
+      ]
+    }
+  ])
+}
+// switch statements for user choices
 
 .then(answer) => {
-  switch (answer.action){
+  switch (answer.action) {
 
-case "Add department"();
-addDepartment();
-break;
+    case "Add department"():
+      addDepartment();
+      break;
 
-case "Add new role"();
-addNewRole();
-break;
+    case "Add new role"():
+      addNewRole();
+      break;
 
-case "Add new employee"();
-addNewEmployee();
-break;
+    case "Add new employee"():
+      addNewEmployee();
+      break;
 
-case "View departments"();
-viewDeparments();
-break;
+    case "View departments"():
+      viewDepartments();
+      break;
 
-case "View roles"();
-viewRoles();
-break;
+    case "View roles"():
+      viewRoles();
+      break;
 
-case "View employee"();
-viewEmployee();
-break;
+    case "View employee"():
+      viewEmployee();
+      break;
 
-case "Update Employee Role"();
-updateEmployeeRole();
-break;
+    case "Update Employee Role"():
+      updateEmployeeRole();
+      break;
+
   }
-}};
+}
+
+// create functions for        
+//               "Add department",
+
+//               "Add new role",
+
+//               "Add new employee",
+
+//               "View departments",
+
+//               "View roles",
+
+//               "View employees",
+
+//               "Update employee roles",
