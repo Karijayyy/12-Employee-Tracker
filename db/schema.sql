@@ -13,7 +13,6 @@ CREATE TABLE roles (
     title VARCHAR(30),
     salary INT,
     department_id INT,
-    FOREIGN KEY(department_id) REFERENCES departments(id)
 );
 
 CREATE TABLE employee (
@@ -22,6 +21,4 @@ CREATE TABLE employee (
     last_name VARCHAR,
     role_id INT,
     manager_id INT,
-    FOREIGN KEY(role_id) REFERENCES roles(id),
-FOREIGN KEY(manager_id) REFERENCES employee(id)
 );
