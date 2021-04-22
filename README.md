@@ -5,8 +5,10 @@ View departments, roles, & employees. The user will also be able to Update emplo
 ## Install
 npm i
 npm i inquirer
+npm i nodemon
 
-## Screenshot
+## Video Walk through
+https://drive.google.com/file/d/1uCgr1GsY3ygjENcOnuVqowrxpUYfEsl2/view?usp=sharing
 
 ## Resources
 https://www.npmjs.com/

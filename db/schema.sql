@@ -4,8 +4,6 @@ USE employee_trackerDB;
 
 -- create tables for department, role and employee
 
--- NEED TO FIX THIS SO MY QUIRIES WILL GO INTO HERE--
-
 CREATE TABLE departments ( 
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     department_name VARCHAR(30),
@@ -20,8 +18,8 @@ CREATE TABLE roles (
 
 CREATE TABLE employee (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR,
-    last_name VARCHAR,
+    first_name VARCHAR(30),
+    last_name VARCHAR(30),
     role_id INT,
     manager_id INT,
 );

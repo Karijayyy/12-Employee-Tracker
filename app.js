@@ -7,6 +7,7 @@ let options = ['Add new department', 'Add new role', 'Add new Employee', 'View C
 
 //First user prompt 
 function init() {
+
     //make a query for a list of employees and displaying them
     // console.table
     inquirer
@@ -100,7 +101,9 @@ let newRole = () => {
         .then((response) => {
             connection.query('INSERT INTO roles SET',
                 {
-                    role_title: response.newRole,
+                    id: response.newID,
+                    //this was written as role_title: but i changed it to see if this worked
+                    title: response.newRole,
                     salary: response.salary,
                     department_id: response.departmentID,
                 },
@@ -139,7 +142,7 @@ let newEmployee = () => {
                 name: 'employeeManagerID',
             }
         ])
-        // this takes in the users input and puts it in the db 
+        // this takes in the users input and puts it in the db under employee row 
         .then((response) => {
 connection.query('INSERT INTO employee SET',
                 {
@@ -160,7 +163,7 @@ connection.query('INSERT INTO employee SET',
 let viewDepartment = () => {
     connection.query('SELECT * FROM departments', (err, res) => {
         if (err) throw err;
-        console.table(res);
+        // console.table(res);
         init();
     })
 };
@@ -169,7 +172,7 @@ let viewDepartment = () => {
 let viewRole = () => {
     connection.query('SELECT * FROM roles', (err, res) => {
         if (err) throw err;
-        console.table(res);
+        // console.table(res);
         init();
     });
 };
@@ -178,7 +181,7 @@ let viewRole = () => {
 let viewEmployees = () => {
     connection.query('SELECT * FROM employee', (err, res) => {
         if (err) throw err;
-        console.table(res);
+        // console.table(res);
         init();
     });
 };

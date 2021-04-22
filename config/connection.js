@@ -14,7 +14,7 @@ connection = mysql.createConnection({
 // if the connection doesn't work, it'll throw an error
 connection.connect((err) => {
     if (err) throw err;
-    console.log(`connected ${connection.threadId}`);
+    // console.log(`connected ${connection.threadId}`);
     // init();
 });
 
