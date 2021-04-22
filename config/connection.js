@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 const inquirer = require('inquirer');
+// const init = require('../app');
 
 // this is creating the data base connection
 connection = mysql.createConnection({
@@ -14,7 +15,7 @@ connection = mysql.createConnection({
 connection.connect((err) => {
     if (err) throw err;
     console.log(`connected ${connection.threadId}`);
-    init();
+    // init();
 });
 
 module.exports = connection;

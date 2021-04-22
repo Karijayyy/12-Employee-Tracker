@@ -1,12 +1,14 @@
  const mysql = require('mysql');
  const inquirer = require('inquirer');
-const connection = require('./config/connection')
+const connection = require('./config/connection');
 
 //array for prompts
 let options = ['Add new department', 'Add new role', 'Add new Employee', 'View Current Departments', 'View Current Roles', 'View Current Employees', 'Update Employee role', 'Finished'];
 
 //First user prompt 
 function init() {
+    //make a query for a list of employees and displaying them
+    // console.table
     inquirer
         .prompt([
             {
@@ -60,9 +62,9 @@ let newDepartment = () => {
         ])
         //then creates the new department based off of the response
         .then((response) => {
-            connection.query('INSERT INTO department SET ?',
+            connection.query('INSERT INTO departments SET ?',
                 {
-                    dep_name: response.newDepartment,
+                    department_name: response.newDepartment,
                 },
                 // takes user to to list of questions again
                 (err, res) => {
@@ -156,7 +158,7 @@ connection.query('INSERT INTO employee SET',
 
 // this allows you to see the view department function & returns the associated data 
 let viewDepartment = () => {
-    connection.query('SELECT * FROM department', (err, res) => {
+    connection.query('SELECT * FROM departments', (err, res) => {
         if (err) throw err;
         console.table(res);
         init();
@@ -165,7 +167,7 @@ let viewDepartment = () => {
 
 // this allows you to view the function of view role & returns the associated data
 let viewRole = () => {
-    connection.query('SELECT * FROM emp_role', (err, res) => {
+    connection.query('SELECT * FROM roles', (err, res) => {
         if (err) throw err;
         console.table(res);
         init();
@@ -221,3 +223,5 @@ let changeRole = () => {
             })
     })
 };
+// module.exports = init;
+init()
